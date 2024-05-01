@@ -1,0 +1,52 @@
+<!-- ↓ YouTubeプレイヤー ↓ -->
+<div class="w-full h-[50vh] bg-black">
+  <app-player [playerVars]="playerVars" (stateChange)="playerState.next($event)" (error)="playerError.next($event)">
+  </app-player>
+</div>
+
+<div class="w-full max-w-2xl mt-4 mx-auto px-4 md:p-0 flex flex-col gap-4 text-left">
+
+  <!-- ↓ ユーザー情報 ↓ -->
+  <div class="flex gap-2 items-center w-fit" [class.cursor-pointer]="!recommend.anonymity"
+    (click)="openTwitter(recommend)">
+    <img [src]="recommend.anonymity ? 'assets/anonymous_icon.png' : recommend.icon_url" alt="pfp"
+      default="assets/error_icon.png" class="h-12 w-12 rounded-full">
+    <div>
+      <p class="text-sm text-gray-400">Selected by</p>
+      <p>{{recommend.anonymity ? 'anonymous' : '@' + recommend.twitter_name}}</p>
+    </div>
+  </div>
+
+  <!-- ↓ サイト説明 ↓ -->
+  <div class="mt-4">
+    <h3 class="mb-1 border-b-2 border-blue-400 font-bold">このサイトについて</h3>
+    <p>Twitter アカウントを持つ"誰か"が YouTube 上から選んだ3曲を、ただただ順々に再生するサービスです。現在β版。作業用BGMなどにどうぞ。</p>
+  </div>
+
+  <div>
+    <h3 class="mb-1 border-b-2 border-blue-400 font-bold">曲の登録について</h3>
+    <ul class="pl-6 list-disc">
+      <li>Twitter アカウントによる認証が必要です。</li>
+      <li>YouTube 上で公開されている動画に限ります。</li>
+      <li>15分以上の動画はスキップされます。</li>
+      <li>削除や非公開となった動画はスキップされます。</li>
+      <li>時間指定はできません。</li>
+      <li>登録した3曲はいつでも変更・削除可能です。</li>
+      <li>登録時にアカウント名の公開/非公開が選べます。</li>
+    </ul>
+  </div>
+
+  <div>
+    <h3 class="mb-1 border-b-2 border-blue-400 font-bold">お問い合わせについて</h3>
+    <p>不具合のご報告やその他お問い合わせにつきましては、当サイトの Twitter アカウント（<a href="https://twitter.com/Someones3songs" target="_blank"
+        rel="noopener noreferrer">@Someones3songs</a>）までご連絡ください。</p>
+  </div>
+
+  <div class="my-4 mx-auto w-1/4">
+    <button class="px-4 py-2 w-full border rounded-md text-sm text-white bg-blue-400 hover:bg-blue-300"
+      (click)="signIn()">
+      ログイン
+    </button>
+  </div>
+
+</div>

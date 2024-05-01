@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    height: 100%;
+    font-size: 0.9em;
+    text-align: justify;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    height: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+a {
+    color: #3b82f6;
+    text-decoration: underline;
+}
+
+.font-teko {
+    font-family: 'Teko', sans-serif;
+}
+
+.wrapper {
+    padding: 0 1rem;
+}
+
+/* PCで表示する際の設定 */
+@media (min-width: 640px) {
+    html {
+        font-size: 1rem;
+    }
+
+    .wrapper {
+        width: 640px;
+        margin: 0 auto;
+    }
+}

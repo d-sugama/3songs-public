@@ -1,0 +1,3 @@
+<input [type]="type" class="p-2 w-full border rounded focus:outline-none focus:ring-1"
+  [ngClass]="{'border-yellow-400 ring-yellow-400': isInvalid()}" [placeholder]="placeholder" [formControl]="control"
+  (focus)="focus.emit($event)" (blur)="blur.emit($event)">

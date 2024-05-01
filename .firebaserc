@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "three-songs": {
+      "hosting": {
+        "someones3songs": [
+          "three-songs"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "three-songs"
+  }
+}

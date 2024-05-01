@@ -1,0 +1,10 @@
+<label class="flex flex-col">
+  <span class="pl-1 pb-1"><ng-content></ng-content></span>
+  <app-input [control]="control" placeholder="https://youtu.be/i9fvzaagMYY"></app-input>
+</label>
+<p *ngIf="control.invalid && control.touched" class="pl-1 text-sm text-red-400">
+  動画が取得できない、または本サイトでは再生できない動画が設定されています。
+</p>
+<div class="mt-2 w-full bg-black">
+  <app-player [playerVars]="{ playlist: videoId }" (error)="this.playerError$.next(true)"></app-player>
+</div>

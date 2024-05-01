@@ -1,0 +1,36 @@
+<!-- ↓ アカウント情報 ↓ -->
+<div class="mt-2 text-center">
+  <img [src]="recommend.icon_url" alt="pfp" class="mx-auto h-20 w-20 border rounded-full">
+  <p>@{{recommend.twitter_name}}</p>
+</div>
+
+<!-- ↓ 入力フォーム ↓ -->
+<div class="mt-8 flex flex-col gap-4">
+  <div *ngFor="let control of playlist; let i = index">
+    <app-song-input [control]="control">
+      {{['1st', '2nd', '3rd'][i]}} track url <span class="text-red-400">*必須</span>
+    </app-song-input>
+  </div>
+  <label>
+    <input type="checkbox" class="mr-2" [formControl]="anonymity">
+    アカウント情報を非公開にする
+  </label>
+  <div class="mt-8 flex justify-center gap-12">
+    <button class="px-4 py-2 rounded-lg bg-blue-400 text-white disabled:bg-blue-200 hover:bg-blue-500 transition-colors"
+      [disabled]="isInvalid()" (click)="submit()">
+      登録する
+    </button>
+    <button *ngIf="recommend.playlist[0]"
+      class="px-4 py-2 rounded-lg bg-red-400 text-white hover:bg-red-500 transition-colors" (click)="remove()">
+      削除する
+    </button>
+    <button *ngIf="!recommend.playlist[0]"
+      class="px-4 py-2 rounded-lg border border-blue-400 hover:bg-slate-100 hover:border-blue-300 transition-colors"
+      (click)="cancel()">
+      キャンセル
+    </button>
+  </div>
+</div>
+
+<!-- ↓ スペース調整用の空div ↓ -->
+<div class="mb-24"></div>

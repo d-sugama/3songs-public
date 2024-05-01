@@ -1,0 +1,14 @@
+<div class="h-full flex flex-col">
+  <header class="mx-auto px-4 md:p-0 w-full max-w-2xl">
+    <div class="w-fit flex items-center cursor-pointer" routerLink="/">
+      <img src="/assets/logo-icon.svg" alt="logo" class="mr-2 h-10">
+      <h1 class="font-teko pt-2">Someone's 3 songs.<small class="pl-2 text-gray-400">ver.β2</small></h1>
+    </div>
+  </header>
+  <router-outlet></router-outlet>
+  <footer class="py-2 text-center text-xs">&copy; 2023 shitagocoro-records.</footer>
+</div>
+
+<!-- ↓ ロード画面とモーダル ↓ -->
+<app-loading class="fixed inset-0" [class.hidden]="!loading"></app-loading>
+<app-modal class="fixed inset-0" [class.hidden]="!modal"></app-modal>

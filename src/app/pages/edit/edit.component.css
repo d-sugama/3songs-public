@@ -1,0 +1,3 @@
+:host {
+  @apply grow w-full max-w-2xl mt-4 mx-auto px-4 md:p-0;
+}
